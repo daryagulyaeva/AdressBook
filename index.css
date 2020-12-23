@@ -36,14 +36,14 @@ body {
   display: flex;
   flex-direction: row;
 }
-.view-contacts_list {
+#view-contacts_list {
   width: 40%;
   height: 500px;
   border-right: 1px black solid;
   border-bottom: 1px black solid;
   overflow: auto;
 }
-.view-contacts_information {
+#view-contacts_information {
   width: 60%;
   height: 500px;
   border-bottom: 1px black solid;
@@ -120,4 +120,11 @@ body {
   background-color: tomato;
   color: white;
   transform: translateY(7px);
+}
+#contact{
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;/*заглавные буквы*/
+  font-size: 20px;
+  height: 35px;
 }
