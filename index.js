@@ -28,13 +28,18 @@ document.getElementById("add").onclick = function () {
 const renderContacts = (array) => {
   let out = "";
   array.forEach((element) => {
-    out += `<div id="contact">
+    out += `<div id="contact" onclick="test()">
         ${element.name} 
         ${element.secondName} 
         </div>`;
   });
   document.getElementById("view-contacts_list").innerHTML = out;
 };
+const test =() =>{
+  let information=document.getElementById("view-information");
+  information.style.display="flex";
+  console.log(123);
+}
 
 document.getElementById("open").onclick = function () {
   let modalAdd = document.getElementById("modal-add");

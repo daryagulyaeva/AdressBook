@@ -128,3 +128,17 @@ body {
   font-size: 20px;
   height: 35px;
 }
+#contact:hover  {
+  background-color: goldenrod;
+}
+#contact:active{
+  background-color: indigo;
+}
+#view-information{
+  display: none;
+  flex-direction: row;
+  box-shadow: 2px 0px 20px 10px rgba(0, 0, 0, 0.28);
+  margin-top: 10px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
