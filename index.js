@@ -15,30 +15,43 @@ document.getElementById("add").onclick = function () {
     patronymic: patronymic,
     phoneNumber: phoneNumber,
   };
+
   contacts.push(contact);
-  console.log(contacts);
   modalAdd.style.display = "none";
+
   document.getElementById("name").value = "";
   document.getElementById("second_name").value = "";
   document.getElementById("patronymic").value = "";
   document.getElementById("phone_number").value = "";
+
   renderContacts(contacts);
 };
 
 const renderContacts = (array) => {
   let out = "";
   array.forEach((element) => {
-    out += `<div id="contact" onclick="test()">
+    out += `<div id="contact" onclick="viewContactInfo(${element.id})">
         ${element.name} 
         ${element.secondName} 
         </div>`;
   });
   document.getElementById("view-contacts_list").innerHTML = out;
 };
-const test =() =>{
-  let information=document.getElementById("view-information");
-  information.style.display="flex";
-  console.log(123);
+/*пробегается по массиву и сравнивает id*/
+const findId = (id) => contacts.find(e => e.id === id);
+
+
+const viewContactInfo = (id) => {
+  let out = "";
+  let info = findId(id);
+  out += `<div id="view-information">
+ <span class="info"><strong>Фамилия: </strong> ${info.secondName}</span>
+ <span class="info"><strong>Имя: </strong> ${info.name}</span>
+ <span class="info"> <strong>Номер телефона: </strong> ${info.phoneNumber} </span>
+ <span class="info"><strong>Отчество: </strong> ${info.patronymic} </span>
+  </div>`;
+
+  document.getElementById("view-contacts_information").innerHTML = out;
 }
 
 document.getElementById("open").onclick = function () {

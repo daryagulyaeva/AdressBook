@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <title>Adress Book</title>
-  </head>
-  <body>
-    <div id="root">
-      <div class="title"><strong>Адресная Книга</strong></div>
-      <div class="form-add">
-        <button class="form-add_button" id="open">Добавить контакт</button>
-      </div>
-      <div class="view-contacts">
-        <div id="view-contacts_list">1</div>
-        <div id="view-contacts_information"><div id="view-information">2</div>1</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <title>Adress Book</title>
+</head>
+
+<body>
+  <div id="root">
+    <div class="title"><strong>Адресная Книга</strong></div>
+    <div class="form-add">
+      <button class="form-add_button" id="open">Добавить контакт</button>
+    </div>
+    <div class="view-contacts">
+      <div id="view-contacts_list"></div>
+      <div id="view-contacts_information"></div>
+    </div>
+  </div>
+  <div id="modal-add">
+    <div id="modal-add_content">
+      <input type="text" id="name" placeholder="Имя" />
+      <input type="text" id="second_name" placeholder="Фамилия" />
+      <input type="text" id="patronymic" placeholder="Отчество" />
+      <input type="tel" id="phone_number" placeholder="Номер телефона" />
+      <div class="buttons">
+        <button id="add">Добавить</button>
+        <button id="close">Закрыть</button>
       </div>
     </div>
-    <div id="modal-add">
-      <div id="modal-add_content">
-        <input type="text" id="name" placeholder="Имя" />
-        <input type="text" id="second_name" placeholder="Фамилия" />
-        <input type="text" id="patronymic" placeholder="Отчество" />
-        <input type="tel" id="phone_number" placeholder="Номер телефона" />
-        <div class="buttons">
-          <button id="add">Добавить</button>
-          <button id="close">Закрыть</button>
-        </div>
-      </div>
-    </div>
-    <script src="index.js"></script>
-  </body>
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>

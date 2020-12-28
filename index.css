@@ -1,5 +1,6 @@
 body {
   background-color: #eceaea;
+  margin: 0;
 }
 #root {
   display: flex;
@@ -44,6 +45,10 @@ body {
   overflow: auto;
 }
 #view-contacts_information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 60%;
   height: 500px;
   border-bottom: 1px black solid;
@@ -99,11 +104,13 @@ body {
   letter-spacing: 3px;
   transition: 0.3s;
 }
+
 #add:hover {
   background-color: #2ee59d;
   color: white;
   transform: translateY(-7px);
 }
+
 #close {
   background-color: rgba(255, 175, 212, 0.493);
   text-align: center;
@@ -116,11 +123,13 @@ body {
   border:1px solid tomato;
   color:tomato;
 }
+
 #close:hover{
   background-color: tomato;
   color: white;
   transform: translateY(7px);
 }
+
 #contact{
   display: flex;
   flex-direction: row;
@@ -128,17 +137,27 @@ body {
   font-size: 20px;
   height: 35px;
 }
+
 #contact:hover  {
   background-color: goldenrod;
 }
+
 #contact:active{
   background-color: indigo;
 }
+
 #view-information{
-  display: none;
-  flex-direction: row;
-  box-shadow: 2px 0px 20px 10px rgba(0, 0, 0, 0.28);
-  margin-top: 10px;
-  margin-left: 10px;
-  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+  align-items:left;
+  box-shadow: 2px 0px 20px 10px rgba(0, 0, 0, 0.17);
+  height: 90%;
+  width: 70%;
+  font-size: 20px;
+}
+
+.info{
+  border-bottom: 1px black solid;
+  
 }
