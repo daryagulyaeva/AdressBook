@@ -1,4 +1,4 @@
-let contacts = [];
+let contacts = getList();
 document.getElementById("add").onclick = function() {
     let name = document.getElementById("name").value;
     let secondName = document.getElementById("second_name").value;
@@ -24,6 +24,7 @@ document.getElementById("add").onclick = function() {
     document.getElementById("patronymic").value = "";
     document.getElementById("phone_number").value = "";
 
+    save(contacts);
     renderContacts(contacts);
 };
 
@@ -37,6 +38,11 @@ const renderContacts = (array) => {
     });
     document.getElementById("view-contacts_list").innerHTML = out;
 };
+
+if (contacts) {
+    renderContacts(contacts);
+}
+
 /*пробегается по массиву и сравнивает id*/
 const findId = (id) => contacts.find(e => e.id === id);
 
@@ -47,8 +53,8 @@ const viewContactInfo = (id) => {
         out += `<div id="view-information">
  <span class="info"><strong>Фамилия: </strong> ${info.secondName}</span>
  <span class="info"><strong>Имя: </strong> ${info.name}</span>
- <span class="info"> <strong>Номер телефона: </strong> ${info.phoneNumber} </span>
  <span class="info"><strong>Отчество: </strong> ${info.patronymic} </span>
+ <span class="info"> <strong>Номер телефона: </strong> ${info.phoneNumber} </span>
  <div><button id="delete" onclick="deleteContact(${id})">Удалить</button></div> 
  </div>`;
 
@@ -60,9 +66,30 @@ const remove = (id) => contacts.filter(element => element.id != id);
 /*нажимая на кнопку приравниваем неотфильтрованный массив с отфильтрованным*/
 const deleteContact = (id) => {
     contacts = remove(id);
+    save(contacts);
     renderContacts(contacts);
     document.querySelector("#view-information").style.display = "none";
 }
+
+// сохраняем массив в локальном хранилище
+const save = (object) => {
+        localStorage.setItem("list", JSON.stringify(object))
+    }
+    //выводим массив из локального хранилища
+function getList() {
+    const listLocalStorage = localStorage.getItem("list");
+    if (listLocalStorage !== null) {
+        return JSON.parse(listLocalStorage);
+    }
+    return [];
+}
+/*поиск и вывод знначиения*/
+document.getElementById("button_search").onclick = function() {
+    let value = document.getElementById("input_search").value;
+    renderContacts(searchFilter(value));
+};
+
+const searchFilter = (value) => contacts.filter(element => element.name === value || element.secondName === value || element.patronymic === value);
 
 document.getElementById("open").onclick = function() {
     let modalAdd = document.getElementById("modal-add");
