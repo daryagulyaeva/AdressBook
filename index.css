@@ -87,6 +87,31 @@ body {
     height: 30px;
 }
 
+#modal-edit {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 1, 3, 0.212);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-edit_content {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+#modal-edit_content input {
+    margin: 5px;
+    height: 30px;
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
@@ -195,4 +220,27 @@ body {
 
 #delete:hover {
     transform: translateY(-7px)
+}
+
+.view-information_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+
+#edit {
+    margin-bottom: 10%;
+    /*отступ от объекта*/
+    margin-right: 10%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+    width: max-content;
+    /*ширина зависит от текста*/
+    height: 45px;
+    color: white;
+    background: linear-gradient(90deg, rgb(34, 15, 141) 0%, rgb(36, 77, 211) 100%);
+    transition: 0.2s;
 }

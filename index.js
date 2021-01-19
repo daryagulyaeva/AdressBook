@@ -55,7 +55,9 @@ const viewContactInfo = (id) => {
  <span class="info"><strong>Имя: </strong> ${info.name}</span>
  <span class="info"><strong>Отчество: </strong> ${info.patronymic} </span>
  <span class="info"> <strong>Номер телефона: </strong> ${info.phoneNumber} </span>
- <div><button id="delete" onclick="deleteContact(${id})">Удалить</button></div> 
+ <div class="view-information_buttons">
+ <button id="edit" onclick="modalEdit(${id})">Редактировать</button>
+ <button id="delete" onclick="deleteContact(${id})">Удалить</button></div> 
  </div>`;
 
         document.getElementById("view-contacts_information").innerHTML = out;
@@ -98,4 +100,42 @@ document.getElementById("open").onclick = function() {
 document.getElementById("close").onclick = function() {
     let modalAdd = document.getElementById("modal-add");
     modalAdd.style.display = "none";
+};
+
+const modalEdit = (id) => {
+        let info = findId(id);
+        document.getElementById("id").value = info.id;
+        document.getElementById("name-edit").value = info.name;
+        document.getElementById("second_name-edit").value = info.secondName;
+        document.getElementById("patronymic-edit").value = info.patronymic;
+        document.getElementById("phone_number-edit").value = info.phoneNumber;
+
+        let EditModal = document.getElementById("modal-edit");
+        EditModal.style.display = "flex";
+    }
+    /*пробегает по массиву и если id равен объекту и приравниваем объекты которые передали и возвращаем элемент*/
+
+
+document.getElementById("save_button").onclick = function() {
+    let object = {
+        id: document.getElementById("id").value,
+        name: document.getElementById("name-edit").value,
+        secondName: document.getElementById("second_name-edit").value,
+        patronymic: document.getElementById("patronymic-edit").value,
+        phoneNumber: document.getElementById("phone_number-edit").value,
+    };
+
+
+    contacts = contacts.map(element => {
+        if (element.id === Number(object.id)) {
+            return element = object;
+        }
+        return element;
+    });
+    save(contacts);
+}
+
+document.getElementById("close-edit").onclick = function() {
+    let EditModal = document.getElementById("modal-edit");
+    EditModal.style.display = "none";
 };
